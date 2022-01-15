@@ -43,6 +43,23 @@ geth account import --datadir /data  --password /tmp/exchange_pass  /tmp/exchang
 # Create exchange account (end)
 # 
 
+#
+# Create USDT sender account (start)
+#
+
+# Note: If you need more of these, you can generate a new address
+# and a corresponding private key using
+#
+# https://vanity-eth.tk
+
+echo only-cheese-in-a-mouse-trap-is-cheap > /tmp/usdt_sender_pass
+echo 620a589aa99ef4944cfd670503959b47f78d1b03d625bc6adf978736745bf30d > /tmp/usdt_sender_private_key
+geth account import --datadir /data  --password /tmp/usdt_sender_pass  /tmp/usdt_sender_private_key || true
+
+#
+# Create USDT sender account (end)
+#
+
 if [[ $# -eq 0 ]] ; then
   exec geth --config .config.toml --allow-insecure-unlock --nousb --verbosity $ETH_VERBOSITY --gcmode=archive --mine --miner.threads 1 --unlock $ETH_ADDRESS --password /tmp/eth_pass --rpcapi="db,eth,net,web3,personal,txpool,debug" --miner.gasprice 1
 else
