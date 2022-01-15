@@ -16,6 +16,13 @@ GitHub Repository is available at [ulamlabs/geth-poa-testnet](https://github.com
 $ docker build -t mentiflectax/geth-poa-testnet:latest .
 ```
 
+Note: Replace `latest` with a version number like `v4`. This version must be the same as [docker-compose.yml](https://github.com/mentiflectax/minimal-crypto-exchange/blob/0.1/docker-compose.yml) file of the minimal crypto exchange.
+
+
+```console
+$ docker image push mentiflectax/geth-poa-testnet:v4
+```
+
 ## Usage
 
 Docker container requires these environment variables to be set:
